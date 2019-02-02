@@ -43,13 +43,13 @@ str = io.read()
 while str do
     if string.sub(str, 1,11) == "valid-data:" then
         tokens=split(str, " ")
-		key = tokens[2]:gsub("^\"(.+)\"$", "%1")
+        key = tokens[2]:gsub("^\"(.+)\"$", "%1")
         number = tonumber(tokens[4])
-		if (data[key] == nil) then
+        if (data[key] == nil) then
             data[key] = {}
-		end
+        end
         table.insert(data[key], number)
-	end
+    end
     str = io.read()
 end
 
