@@ -21,24 +21,24 @@ func main() {
 		tokens := strings.Split(line, " ")
 		key := strings.Trim(tokens[1], "\"")
 
-        /*
-            https://github.com/golang/go/issues/27522
+		/*
+		   https://github.com/golang/go/issues/27522
 
-            The signature of strconv.ParseUint is func ParseUint(s string, base
-            int, bitSize int) (uint64, error) – and it can only have that
-            single signature; Go doesn't have function overloading. The bitSize
-            argument limits the range of values, it doesn't affect the return
-            type. Use an explicit type conversion if you need a type other than
-            uint64.
-        */
-        number, _ := strconv.ParseUint(tokens[3],10,16)
+		   The signature of strconv.ParseUint is func ParseUint(s string, base
+		   int, bitSize int) (uint64, error) – and it can only have that
+		   single signature; Go doesn't have function overloading. The bitSize
+		   argument limits the range of values, it doesn't affect the return
+		   type. Use an explicit type conversion if you need a type other than
+		   uint64.
+		*/
+		number, _ := strconv.ParseUint(tokens[3], 10, 16)
 
 		_, ok := data[key]
 		if ok {
-            data[key] = append(data[key], uint16(number))
+			data[key] = append(data[key], uint16(number))
 		} else {
-            data[key] = make([]uint16,1)
-        }
+			data[key] = make([]uint16, 1)
+		}
 
 	}
 
@@ -47,5 +47,5 @@ func main() {
 	}
 
 	//fmt.Println("ok")
-	fmt.Print(len(data),",")
+	fmt.Print(len(data), ",")
 }
