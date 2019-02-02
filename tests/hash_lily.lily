@@ -1,0 +1,27 @@
+
+var data: Hash[String, List[Integer]] = []
+var line: String = ""
+var tokens: List[String] = []
+var key: String = ""
+var number: Integer = 0
+
+stdin.each_line(|e| 
+  line = e.encode().unwrap()
+  if line.starts_with("valid-data:") == true: {
+
+    tokens = line.split()
+    key = tokens[1].strip("\"")
+    number = tokens[3].strip("\n").parse_i().unwrap()
+
+    if data.has_key(key) == false: {
+        data[key] = [number]
+    else: 
+        data[key].push(number)
+    }
+  }
+)
+
+stdout.write(data.size())
+stdout.write(",")
+
+
