@@ -59,12 +59,13 @@ end
 pp data
 
 # for benchmark
-#print data.size
-#print ","
+print data.size
+print ","
 ```
 result 
 ```
 $ grep -E '(4Fw82H59LwwC76athMn|oZqXkMuAIgNi6g9q)' ../test-data.txt | ruby2.6 hash_ruby-sample.rb
 {"4Fw82H59LwwC76athMn"=>[65036, 22134, 51213, 34724, 6232, 21687, 43780],
  "oZqXkMuAIgNi6g9q"=>[18592, 20870, 59030, 13547]}
+ 2,
 ```
