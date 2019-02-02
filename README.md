@@ -1,13 +1,14 @@
 # simple-benchmarks
 Set of simple benchmarks for my personal projects
 
-# hash benchmark
+## hash benchmark
 
-## preparing random data
-
-total length
+### preparing data
 ```
 $ ./create-test-data.py > test-data.txt
+```
+total length
+```
 $ wc -l test-data.txt 
 2801337 test-data.txt
 ```
@@ -23,8 +24,7 @@ $ grep valid-data: test-data.txt | cut -f 2 -d ' ' | sort | uniq | wc -l
 
 ```
 
-## sample program
-
+### testing
 ```
 $ grep -E '(4Fw82H59LwwC76athMn|oZqXkMuAIgNi6g9q)' ../test-data.txt
 valid-data: "4Fw82H59LwwC76athMn" foo 65036
@@ -44,7 +44,6 @@ valid-data: "4Fw82H59LwwC76athMn" foo 6232
 valid-data: "4Fw82H59LwwC76athMn" foo 21687
 valid-data: "4Fw82H59LwwC76athMn" foo 43780
 ```
-
 sample program
 ```ruby
 data = Hash.new {|hsh, key| hsh[key] = [] }
@@ -63,12 +62,9 @@ pp data
 #print data.size
 #print ","
 ```
-
 result 
 ```
 $ grep -E '(4Fw82H59LwwC76athMn|oZqXkMuAIgNi6g9q)' ../test-data.txt | ruby2.6 hash_ruby-sample.rb
 {"4Fw82H59LwwC76athMn"=>[65036, 22134, 51213, 34724, 6232, 21687, 43780],
  "oZqXkMuAIgNi6g9q"=>[18592, 20870, 59030, 13547]}
 ```
-
-
